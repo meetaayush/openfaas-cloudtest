@@ -1,6 +1,6 @@
 steps:
 ## Shinkwrap
-- name: print project_id
+- name: 'print project_id'
   args: ['echo' '$PROJECT_ID']
 - name: 'asia-south1-docker.pkg.dev/calcium-tea-393405/meetaayush/faas-cli:0.16.30-root'
   args: ['faas-cli', 'template', 'store', 'pull', 'node20']
