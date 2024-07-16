@@ -6,5 +6,5 @@ functions:
   echo:
     lang: node20
     handler: ./echo
-    image: echo:latest
+    image: meetaayush/echo:latest
 
