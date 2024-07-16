@@ -2,13 +2,13 @@ steps:
 ## Shinkwrap
 - name: 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/faas-cli:0.16.30-root'
   args: ['faas-cli', 'template', 'store', 'pull', 'node20']
-- name: 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/faas-cli:0.16.30-root'
-  args: ['faas-cli', 'build', '--shrinkwrap', '-f', 'echo.yml']
-## Build Docker image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:$REVISION_ID', '-t', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:latest', '-f' ,'./build/echo/Dockerfile', './build/echo/']
-## Deploy to "Cloud Run"
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['cloud', 'run', 'deploy', 'echo', '--image', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:$REVISION_ID', '--region', 'us-central1']
-images: 
-- 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo'
+# - name: 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/faas-cli:0.16.30-root'
+#   args: ['faas-cli', 'build', '--shrinkwrap', '-f', 'echo.yml']
+# ## Build Docker image
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:$REVISION_ID', '-t', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:latest', '-f' ,'./build/echo/Dockerfile', './build/echo/']
+# ## Deploy to "Cloud Run"
+# - name: 'gcr.io/cloud-builders/gcloud'
+#   args: ['cloud', 'run', 'deploy', 'echo', '--image', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:$REVISION_ID', '--region', 'us-central1']
+# images: 
+# - 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo'
