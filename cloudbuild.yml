@@ -1,14 +1,14 @@
 steps:
 ## Shinkwrap
-- name: 'asia-south1-docker.pkg.dev/calcium-tea-393405/meetaayush/faas-cli:0.16.30-root'
+- name: 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/faas-cli:0.16.30-root'
   args: ['faas-cli', 'template', 'store', 'pull', 'node20']
-- name: 'asia-south1-docker.pkg.dev/calcium-tea-393405/meetaayush/faas-cli:0.16.30-root'
+- name: 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/faas-cli:0.16.30-root'
   args: ['faas-cli', 'build', '--shrinkwrap', '-f', 'echo.yml']
 ## Build Docker image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'asia-south1-docker.pkg.dev/calcium-tea-393405/meetaayush/echo:$REVISION_ID', '-t', 'asia-south1-docker.pkg.dev/calcium-tea-393405/meetaayush/echo:latest', '-f' ,'./build/echo/Dockerfile', './build/echo/']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:$REVISION_ID', '-t', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:latest', '-f' ,'./build/echo/Dockerfile', './build/echo/']
 ## Deploy to "Cloud Run"
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['cloud', 'run', 'deploy', 'echo', '--image', 'asia-south1-docker.pkg.dev/calcium-tea-393405/meetaayush/echo:$REVISION_ID', '--region', 'asia-south1']
+  args: ['cloud', 'run', 'deploy', 'echo', '--image', 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo:$REVISION_ID', '--region', 'us-central1']
 images: 
-- 'asia-south1-docker.pkg.dev/calcium-tea-393405/meetaayush/echo'
+- 'us-central1-docker.pkg.dev/calcium-tea-393405/meetaayush-us/echo'
